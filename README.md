@@ -1,16 +1,16 @@
-# Harness Engineering 导读
+# Harness Engineering 交互课程
 
-一份按原文章节走的中文阅读界面，对应预印本：
+按 [paper-to-course](https://github.com/ZeroxZhang/paper-to-course) 的流程，把预印本做成一门可交互的中文课。
 
-**Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents — A Source-Code Study of Eleven Systems**
+**Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents**
 
 Paul Barbaste、Tristan Darrigol、Germain Vu、Tom Wiltberger，arXiv:[2609.00006](https://arxiv.org/abs/2609.00006)（2026 年 7 月）。
 
-导读复述论证、标出流通摘要和正文不一致的地方，并提供可以筛选的系统表、29 个模式、13 条观察和 18 条建议。它不转载论文全文。原文：
+课程在 `public/learn/`：封面、七个模块、公式步进、伪代码逐行、对照条、拖放、测验。样式和交互引擎来自该技能的 `references/`。`main.js` 只改了一处：侧边栏节点在首次进度计算之前声明，否则测验函数不会挂上。课程解释论文，不转载全文。
 
-- [摘要](https://arxiv.org/abs/2609.00006)
-- [HTML](https://arxiv.org/html/2609.00006)
-- [PDF](https://arxiv.org/pdf/2609.00006)
+原文：[HTML](https://arxiv.org/html/2609.00006) · [PDF](https://arxiv.org/pdf/2609.00006)
+
+逐节笔记在 `/guide`。
 
 ## 本地运行
 
@@ -19,11 +19,10 @@ npm install
 npm run dev -- --hostname 127.0.0.1 --port 38471
 ```
 
-打开 [http://127.0.0.1:38471](http://127.0.0.1:38471)。
+打开 [http://127.0.0.1:38471](http://127.0.0.1:38471)，首页会进入课程。
+
+改完模块后重新打包：
 
 ```bash
-npm run lint
-npm run build
+cd public/learn && bash build.sh
 ```
-
-阅读进度和设计建议的勾选保存在浏览器本地，没有账号，也没有服务端。

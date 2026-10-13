@@ -1,0 +1,150 @@
+<section class="module" id="module-3">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">03</span>
+      <h2 class="module-title">循环，以及文件怎么改</h2>
+      <p class="module-subtitle">十一套都是 ReAct。反思和「协调者–工人」不是另外两种互斥循环。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">三种脾气，叠在同一种循环上</h3>
+      <div class="step-cards stagger-children animate-in">
+        <div class="step-card">
+          <div class="step-num">9</div>
+          <div class="step-body">
+            <strong>迭代：动作，然后观察</strong>
+            <p>组装提示，调用模型，执行工具，把观察追加回去。OpenHands 按资源锁并行。Claude Code 默认不并行，工具要自己声明并发安全。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>反思形的主循环只有 Aider</strong>
+            <p>改完跑语法、编译和 flake8，失败再叫模型，默认最多三次。它甚至没有工具调用循环，一轮在补全流结束时停下。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">+</div>
+          <div class="step-body">
+            <strong>协调者–工人是叠加上去的</strong>
+            <p>Claude Code 和 Codex 把研究、综合、实现、验证写成父 Agent 的调度。Hermes 要开配置才有。它不是第三种互斥的循环。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <strong class="callout-title">停，也可以是一种设计</strong>
+          <p>Hermes 如果改了代码却没有新的验证证据，会否决「我做完了」。OpenCode 见到三次完全相同的调用，不自动杀掉，而是通过权限问人。Pi 把「没有卡住检测」写成拒绝，不是忘了做。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">九十行里，循环实际在做什么</h3>
+      <p>下面是论文教学脚手架的形状，不是可复制的生产代码。点一行看它为什么在那里。</p>
+      <div class="pseudocode-translation animate-in" id="pseudo-loop">
+        <div class="pseudocode-block">
+          <span class="translation-label">ALGORITHM</span>
+          <span class="pseudocode-line">INPUT: task, model, working directory</span>
+          <span class="pseudocode-line">context = READ AGENTS.md FROM root DOWN TO cwd</span>
+          <span class="pseudocode-line">messages = SYSTEM(context) + USER(task)</span>
+          <span class="pseudocode-line">WHILE TRUE</span>
+          <span class="pseudocode-line">  IF turns OR cost OVER LIMIT THEN STOP</span>
+          <span class="pseudocode-line">  IF tokens OVER THRESHOLD THEN SUMMARIZE middle, KEEP tail</span>
+          <span class="pseudocode-line">  response = MODEL(messages, four tools)</span>
+          <span class="pseudocode-line">  APPEND response</span>
+          <span class="pseudocode-line">  IF no tool calls THEN RETURN text</span>
+          <span class="pseudocode-line">  FOR EACH call: observation = RUN or CATCH as text</span>
+          <span class="pseudocode-line">  APPEND observation</span>
+          <span class="pseudocode-line">END WHILE</span>
+        </div>
+        <div class="pseudocode-explanation">
+          <span class="translation-label">WHY</span>
+          <div class="pseudocode-explanation-lines">
+            <p class="pe">任务、模型和当前目录。没有沙箱，没有第二个 Agent。</p>
+            <p class="pe">从根走到当前目录收集说明。这是十一套里反复出现的 Markdown 上下文。</p>
+            <p class="pe">系统提示靠近说明，用户任务在后。早期决定要留在容易被看见的位置。</p>
+            <p class="pe">线性 while。论文建议先写这个，等轮次策略堆到三件以上再拆成中间件。</p>
+            <p class="pe">便宜的上限。Mini-SWE-Agent 后来也加了步数、格式错误和墙钟。</p>
+            <p class="pe">压缩中间，留下最近一段原文。否则模型会忘掉刚刚的推理。</p>
+            <p class="pe">四只工具：bash、读、写、唯一子串替换。再多，是看见失败之后的事。</p>
+            <p class="pe">模型的话也是历史的一部分。下一步要看得见自己说过什么。</p>
+            <p class="pe">没有工具调用才算这一轮结束。停的条件是「不再行动」，不是「进程崩了」。</p>
+            <p class="pe">异常变成一条 ERROR 文本。循环还在，模型还能改。</p>
+            <p class="pe">观察必须回到消息里。否则模型以为工具没发生过。</p>
+            <p class="pe">下一轮带着完整痕迹继续。这就是外壳和「一次补全」的差别。</p>
+          </div>
+        </div>
+        <div class="pseudocode-controls">
+          <button class="btn pseudocode-prev-btn">上一行</button>
+          <button class="btn pseudocode-next-btn">下一行</button>
+          <button class="btn pseudocode-reset-btn">重新开始</button>
+          <span class="pseudocode-progress"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">改文件的契约，比工具数量更决定准不准</h3>
+      <div class="ablation-demo animate-in">
+        <div class="ablation-tabs">
+          <button class="ablation-tab active" onclick="showLayer('edit-exact', this)">精确且唯一</button>
+          <button class="ablation-tab" onclick="showLayer('edit-fuzzy', this)">模糊级联</button>
+          <button class="ablation-tab" onclick="showLayer('edit-patch', this)">补丁 DSL</button>
+          <button class="ablation-tab" onclick="showLayer('edit-line', this)">行号</button>
+        </div>
+        <div class="ablation-viewport">
+          <div class="ablation-layer" id="edit-exact">
+            <div class="ablation-metric">严格</div>
+            <div class="ablation-delta positive">前沿模型这一侧</div>
+            <p class="ablation-description">Claude Code、迁过去的 Mistral Vibe、Pi。旧文本必须在文件里恰好出现一次。对不上就报错，不偷偷改一个「差不多」的地方。</p>
+          </div>
+          <div class="ablation-layer" id="edit-fuzzy" style="display:none">
+            <div class="ablation-metric">容忍</div>
+            <div class="ablation-delta neutral">模型更杂时</div>
+            <p class="ablation-description">Gemini CLI 从精确走到空白、正则、模糊，最后还可以用一次模型调用修匹配。OpenCode 和 Hermes 各有九段级联，源码注释写着彼此的继承。</p>
+          </div>
+          <div class="ablation-layer" id="edit-patch" style="display:none">
+            <div class="ablation-metric">方言</div>
+            <div class="ablation-delta neutral">按模型族切换</div>
+            <p class="ablation-description">Codex 用自己的 Begin/End Patch。OpenCode 对 GPT 家族换上这套，并拿掉字符串替换。编辑格式是模型的事，不是全局唯一答案。</p>
+          </div>
+          <div class="ablation-layer" id="edit-line" style="display:none">
+            <div class="ablation-metric">别用</div>
+            <div class="ablation-delta negative">论文的反建议</div>
+            <p class="ablation-description">模型对行号的漂移，比对上下文的漂移更严重。建议是在工具里处理匹配失败，而不是让模型报一个行号。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module3">
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="正确。工具结果必须成为下一条消息。异常也要变成文本观察，循环才还在。这是九十行示例里故意留下的行为。"
+             data-explanation-wrong="不太对。重试整个任务会丢掉已经发生的事。把异常只打到终端，模型看不见，下一轮会以为那次调用没发生。">
+          <h3 class="quiz-question">模型调用的替换工具抛了异常。按论文的最小循环，下一步应该发生什么？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>进程退出，把栈打印给终端用户</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>把错误文本当作观察追加进消息，让模型在下一轮看见</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>立刻再派一个子 Agent，用向量搜索找相似补丁</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module3')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module3')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>

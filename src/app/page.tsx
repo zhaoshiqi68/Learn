@@ -1,5 +1,5 @@
-import { Reader } from "@/components/reader";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <Reader />;
+  redirect("/learn");
 }

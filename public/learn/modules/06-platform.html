@@ -1,0 +1,145 @@
+<section class="module" id="module-6">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">06</span>
+      <h2 class="module-title">外壳变成了平台</h2>
+      <p class="module-subtitle">四月这还是假说。七月作者把它写成已经发生的事。然后他们划出不能推出的结论。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">四个能在源码里指认的信号</h3>
+      <div class="step-cards stagger-children animate-in">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Skill 是写给模型的程序</strong>
+            <p>英文加 YAML 头。现在有注册表、供应链审查，以及会写 skill 的 Agent。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>钩子成了扩展基底</strong>
+            <p>四月还是 Claude Code 的特色。七月十一套里有九套。Codex 的事件名逐字沿用，并多了一个 PostCompact。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>界面变成平台的界面</strong>
+            <p>OpenCode 内嵌 HTTP 和生成的 SDK，终端、网页、IDE 都是客户端。OpenHands 把对话暴露成兼容 OpenAI 的端点：Agent 变成了一个模型。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>上面又长出一层</strong>
+            <p>Omnigent 把二十多家 harness 当成可替换部件。它补策略、沙箱和多设备会话，自己不实现编辑循环。</p>
+          </div>
+        </div>
+      </div>
+      <div class="paper-citation animate-in">
+        <div class="paper-citation-title">Building Effective Agents</div>
+        <div class="paper-citation-authors">Schluntz 与 Zhang，2024 年 12 月</div>
+        <div class="paper-citation-summary">警告框架会挡住提示和响应，让调试变难，建议从原始 SDK 调用开始。2026 年的源码审计显示，厂商旗舰都这么做了。论文说这可能是共同经验，也可能是指南影响了设计，或两者都有。他们没有访谈。</div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">若你要新写一个，论文让你先不做的事</h3>
+      <div class="contribution-cards stagger-children animate-in">
+        <div class="contribution-card">
+          <div class="contribution-num">15</div>
+          <div class="contribution-text">
+            <strong>不要用通用框架当运行时</strong>
+            <p>想要现成的，2026 年的「框架」是 harness SDK：Claude Agent SDK、openai-codex、OpenHands 的包。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">16</div>
+          <div class="contribution-text">
+            <strong>不要为代码建向量索引</strong>
+            <p>先在留出的任务上证明它胜过 ripgrep 加 tree-sitter，再考虑基础设施。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">18</div>
+          <div class="contribution-text">
+            <strong>卡住检测不要过度设计</strong>
+            <p>十几行的上限要有：连续格式错误、墙钟、三次相同调用就问人。五种场景的检测器是平台级投入。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">10</div>
+          <div class="contribution-text">
+            <strong>九十行直接实现了十条</strong>
+            <p>其余八条与它兼容，但没有被写进去。沙箱、多 Agent、skill 都在「量到失败再加」的那一侧。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">作者自己不许你推出的结论</h3>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">1</div>
+          <div>
+            <strong>快照会过期</strong>
+            <p>工具数量和版本钉按星期变。循环分类、七个子系统、两个缺席，到这一版还在。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">2</div>
+          <div>
+            <strong>没有统一评测</strong>
+            <p>不能从这份解剖推出谁更会做题，也不能把九十行当成打过基准的模板。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">3</div>
+          <div>
+            <strong>样本不是整个市场</strong>
+            <p>Copilot CLI、Cursor、Cline、Goose、Kiro、Antigravity 都不在这十一套里。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <strong class="callout-title">竞争的单位变了</strong>
+          <p>论文的收束句：这个领域的竞争单位不再是 Agent 循环，而是循环外面的生态表面。钩子、会话导入器、SDK、以及会托管别家 harness 的 ACP。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module6">
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="正确。Listing 3 直接实现十条，并与另外八条兼容。它故意没有沙箱、多 Agent 和 MCP。论文写明不能当生产模板，也没有在基准上跑过它。"
+             data-explanation-wrong="不太对。「实现了十八条」是流通摘要说满的地方。先分清直接写进去的，和只是不冲突的。">
+          <h3 class="quiz-question">同事把论文末尾大约九十行的 Python 拷进生产仓库，说「十八条建议都在里面了」。哪一句更接近论文？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>对。作者证明这段代码能打平 Mini-SWE-Agent 的基准</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>不对。它直接落实十条，沙箱和扩展是留给失败之后再加的</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>不对。缺的是一个 LangGraph 状态图，加上向量索引</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module6')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module6')">重试</button>
+      </div>
+      <p style="margin-top:var(--space-8)">原文：<a href="https://arxiv.org/html/2609.00006">HTML</a> · <a href="https://arxiv.org/pdf/2609.00006">PDF</a> · <a href="https://arxiv.org/abs/2609.00006">摘要</a>。逐节笔记仍在 <a href="/guide">导读</a>。课程解释论文，不转载全文。</p>
+    </div>
+  </div>
+</section>

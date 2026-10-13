@@ -1,0 +1,135 @@
+<section class="module" id="module-1">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">01</span>
+      <h2 class="module-title">同一个模型，两种下场</h2>
+      <p class="module-subtitle">论文要的不是谁分数高，而是外壳在源码里到底长什么样。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">等式先于任何架构图</h3>
+      <p>日常说法是：Agent 会自己改代码。论文把它拆成一件可以指认的东西。先记住意思，再看写法。</p>
+      <div class="math-derivation animate-in" id="math-agent">
+        <div class="math-step" data-step="0">
+          <div class="math-equation">$$\text{Agent} = \text{Model} + \text{Harness}$$</div>
+          <div class="math-explanation">
+            <p>模型提供判断。Harness 是除模型以外的全部：循环、工具、上下文、安全、编排、扩展。这句话 2026 年初从 LangChain 的工程系列里流行开。讽刺的是：词从那里来，语料里的运行时谁都没导入 LangChain。</p>
+          </div>
+        </div>
+        <div class="math-step" data-step="1">
+          <div class="math-equation">$$\text{Harness} = \text{Loop} + \text{Tools} + \text{Context} + \text{Safety} + \text{Orchestration} + \text{Extensions}$$</div>
+          <div class="math-explanation">
+            <p>七个子系统是分析维度，也是作者认为这件东西的解剖图。最小实现可以缩到「没有编排」。最大实现是平台：SDK、市场、治理。</p>
+          </div>
+        </div>
+        <div class="math-step" data-step="2">
+          <div class="math-equation">$$\hat{t} = \left\lfloor \frac{1}{4} \sum_m |\mathrm{json}(m)| \right\rfloor$$</div>
+          <div class="math-explanation">
+            <p>这不是物理定律。它是论文教学脚手架里的 token 估计：把消息编成 JSON，用字符数除以 4。过了阈值就摘要中间、留下系统消息和最近大约 30%。OpenCode 的真源码里也没有分词器，用的是同一类粗估计。</p>
+          </div>
+        </div>
+        <div class="math-controls">
+          <button class="btn math-prev-btn">上一步</button>
+          <button class="btn math-next-btn">下一步</button>
+          <button class="btn math-reset-btn">重新开始</button>
+          <span class="math-progress"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">已有文献都停在壳的外面</h3>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">分</div>
+          <div>
+            <strong>基准调查</strong>
+            <p>报 SWE-bench 分数，不打开循环和权限是怎么写的。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">类</div>
+          <div>
+            <strong>概念分类</strong>
+            <p>说有工具、有记忆、有规划，不说生产代码里怎么实现。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">源</div>
+          <div>
+            <strong>同期的源码分类</strong>
+            <p>Rombaut 的 Inside the Scaffold 只覆盖开源，而且明确排除了没有公开源码的 Claude Code。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#128270;</div>
+        <div class="callout-content">
+          <strong class="callout-title">所以他们的方法很窄</strong>
+          <p>只读钉死版本的源码。不把十一套放到同一组题上跑。四月表里的自报分数，七月删了，因为模型、配置和日期对不上。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">这门学科自己也只有几个月</h3>
+      <div class="lineage-tree animate-in">
+        <div class="lineage-node lineage-root" data-detail="2026 年 7 月的源码解剖：十一套系统，十三个观察，二十九个模式，十八条建议。">
+          <span class="lineage-label">这篇论文</span>
+          <span class="lineage-detail">Barbaste 等，2026-07</span>
+        </div>
+        <div class="lineage-branch">
+          <div class="lineage-edge-label">纵向重钉</div>
+          <div class="lineage-node" data-detail="同一批仓库在 2026 年 4 月先审过八套。七月不是换样本，而是对同一批再做一次差异。">
+            <span class="lineage-label">四月版</span>
+            <span class="lineage-detail">八套系统</span>
+          </div>
+        </div>
+        <div class="lineage-branch">
+          <div class="lineage-edge-label">词从这里来</div>
+          <div class="lineage-node" data-detail="Hashimoto 在 2026 年 2 月随口用过这个词。Trivedy 在 LangChain Deep Agents 的语境里把它定义下来。">
+            <span class="lineage-label">Harness 这个词</span>
+            <span class="lineage-detail">2026-02</span>
+          </div>
+        </div>
+        <div class="lineage-branch">
+          <div class="lineage-edge-label">处方在前</div>
+          <div class="lineage-node" data-detail="2024 年 12 月到 2025 年 9 月的四篇文章：手写循环、少量高信号工具、即时检索、协调者与工人。论文说后来的源码和这些处方对得上，但没做访谈，所以不能说是谁影响了谁。">
+            <span class="lineage-label">Anthropic 工程文章</span>
+            <span class="lineage-detail">2024-12 至 2025-09</span>
+          </div>
+        </div>
+        <p class="lineage-description"></p>
+      </div>
+      <p>点一个节点看它和这篇论文的关系。这是谱系，不是引用清单。</p>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module1">
+        <div class="quiz-question-block"
+             data-correct="option-c"
+             data-explanation-right="正确。作者把自报分数从表里拿掉，正是因为它们不能横比。能留下的是结构：循环怎么写、权限怎么做、缺了什么。"
+             data-explanation-wrong="不太对。论文故意不做排名。Mini-SWE-Agent 和更大的系统自报成绩落在同一区间，但模型和日期不同，作者拒绝从这里推出谁更强。">
+          <h3 class="quiz-question">有人拿 Mini-SWE-Agent 的自报 SWE-bench 去压 Codex 的自报数字，说「小外壳更好」。这篇论文允许这个结论吗？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>允许。代码量差三个数量级，分数还接近，所以复杂度是浪费</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>允许。他们在同一组题上重跑过十一套</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>不允许。数字是自报的，模型和对齐条件都不同，论文删掉了这张对比</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>

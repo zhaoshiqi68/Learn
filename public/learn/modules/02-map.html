@@ -1,0 +1,147 @@
+<section class="module" id="module-2">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">02</span>
+      <h2 class="module-title">七块零件，十一套实现</h2>
+      <p class="module-subtitle">从一百行到一百一十万行，做的是相近的事。多出来的代码大多不在「把题做完」。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">点一块，看它能缩到多小</h3>
+      <p>每一套系统都必须对这七块表态。表态可以是故意不做。</p>
+      <div class="arch-diagram animate-in">
+        <div class="arch-zone">
+          <div class="arch-zone-label">中央</div>
+          <button class="arch-component" type="button" data-desc="执行循环（§6）。推理和动作交替，并拥有停止条件。最小是 Mini-SWE-Agent 的 while。最大是 OpenHands：事件日志上的对话，同一步的工具按资源锁并行。">
+            <span class="arch-icon">&#8635;</span>
+            <span>循环</span>
+          </button>
+        </div>
+        <div class="arch-zone">
+          <div class="arch-zone-label">周围六块</div>
+          <button class="arch-component" type="button" data-desc="模型接入（§7）。说供应商协议、组装提示、处理缓存和路由。最小是一次 LiteLLM 加一块模板。Hermes 自带五套传输和 29 个供应商配置。">
+            <span class="arch-icon">&#128268;</span>
+            <span>模型接入</span>
+          </button>
+          <button class="arch-component" type="button" data-desc="工具与动作（§8）。改文件是核心动作。Mini-SWE-Agent 只有 bash。Claude Code 有 43 个带类型的工具，多的可以延迟加载。">
+            <span class="arch-icon">&#128295;</span>
+            <span>工具</span>
+          </button>
+          <button class="arch-component" type="button" data-desc="记忆与上下文（§9）。最小是历史一直长、不压缩。前沿不再是压缩算法，而是记忆由谁来写、谁来审。">
+            <span class="arch-icon">&#129504;</span>
+            <span>记忆</span>
+          </button>
+          <button class="arch-component" type="button" data-desc="安全与权限（§10）。最小是费用和步数上限。Codex 是策略、钩子、LLM 审批，再加上三个操作系统上的原生沙箱。">
+            <span class="arch-icon">&#128274;</span>
+            <span>安全</span>
+          </button>
+          <button class="arch-component" type="button" data-desc="编排（§11）。Aider 故意没有。Claude Code 可以递归派子 Agent。再往上是 Omnigent，它不算这十一套。">
+            <span class="arch-icon">&#128101;</span>
+            <span>编排</span>
+          </button>
+          <button class="arch-component" type="button" data-desc="扩展（§12）。配置、钩子、SKILL.md、插件、MCP。Pi 把几乎一切都做成扩展，并且明确不要 MCP。">
+            <span class="arch-icon">&#129513;</span>
+            <span>扩展</span>
+          </button>
+        </div>
+        <div class="arch-description">点一个零件。说明来自论文的组件图，不是排行。</div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">十一套不是「四个你听过的名字」</h3>
+      <div class="contribution-cards stagger-children animate-in">
+        <div class="contribution-card">
+          <div class="contribution-num">4</div>
+          <div class="contribution-text">
+            <strong>厂商旗舰</strong>
+            <p>Claude Code、Codex CLI、Gemini CLI，还有经常被漏掉的 Mistral Vibe。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">7</div>
+          <div class="contribution-text">
+            <strong>开源</strong>
+            <p>OpenHands、Aider、Mini-SWE-Agent、Hermes、Pi、OpenCode、OpenClaw。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">+1</div>
+          <div class="contribution-text">
+            <strong>对照，不算进去</strong>
+            <p>Databricks 的 Omnigent 编排别的 harness。OpenClaw 在十一套里，但是网关，自己不改代码。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-warning animate-in">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-content">
+          <strong class="callout-title">Claude Code 的源码不是官方仓库</strong>
+          <p>论文用的是 2026 年 3 月流传的快照。七月的发行二进制是 2.1.206，作者写明二进制可能已经不同。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">把招牌放回系统</h3>
+      <div class="dnd-container animate-in" id="dnd-module2">
+        <div class="dnd-chips">
+          <div class="dnd-chip" draggable="true" data-answer="mini">Mini-SWE-Agent</div>
+          <div class="dnd-chip" draggable="true" data-answer="codex">Codex</div>
+          <div class="dnd-chip" draggable="true" data-answer="pi">Pi</div>
+          <div class="dnd-chip" draggable="true" data-answer="claw">OpenClaw</div>
+        </div>
+        <div class="dnd-zones">
+          <div class="dnd-zone" data-correct="mini">
+            <p class="dnd-zone-label">大约一百行里七块都在，工具只有 bash</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="codex">
+            <p class="dnd-zone-label">约一百一十万行 Rust，三平台原生沙箱，记忆由沙箱里的子 Agent 写</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="pi">
+            <p class="dnd-zone-label">核心极小，子 Agent 在扩展里，要 skill、不要 MCP</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="claw">
+            <p class="dnd-zone-label">多通道网关。编程交给别的 Agent，默认向量只用在对话记忆</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+        </div>
+        <div style="margin-top:var(--space-4)">
+          <button class="btn" onclick="checkDnD('dnd-module2')">检查匹配</button>
+          <button class="btn" onclick="resetDnD('dnd-module2')">重置</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module2">
+        <div class="quiz-question-block"
+             data-correct="option-a"
+             data-explanation-right="正确。观察 1 说循环更精致并不能预测基准。OpenCode 非测试代码大约五分之三是各种客户端。Codex 用大量代码做传输、插件和实时语音，基准不会测这些。"
+             data-explanation-wrong="不太对。论文的观察是反过来的：多出来的质量大多在安全、界面、扩展和传输，不在「把题做完」的那几行循环。">
+          <h3 class="quiz-question">Codex 比 Mini-SWE-Agent 大三个数量级。这些多出来的代码，论文说主要花在哪？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>安全、界面、扩展，以及客户端和传输。不是更会做题的循环</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>一套比别人更准的向量代码索引</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>把 LangGraph 嵌进 Rust，所以行数上去了</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module2')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module2')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,147 @@
+<section class="module" id="module-0">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">00</span>
+      <h2 class="module-title">先把四个词分开</h2>
+      <p class="module-subtitle">背景，不是论文结论。后面每句话都假定你分得清这些东西。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">你已经见过这个场面</h3>
+      <p>同一个模型，一个团队的 Agent 能连续改仓库，另一个跑三步就忘了任务，或者报错之后停在那里。论文认为先别换模型。</p>
+      <div class="svg-diagram animate-in">
+        <svg viewBox="0 0 800 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="模型相同，外壳不同">
+          <rect class="node-rect accent" x="280" y="16" width="240" height="56" rx="12"/>
+          <text x="400" y="50" text-anchor="middle" font-weight="700" font-size="16" font-family="Noto Sans SC, DM Sans, sans-serif">同一个模型</text>
+          <line class="edge-line" x1="360" y1="72" x2="180" y2="130"/>
+          <line class="edge-line" x1="440" y1="72" x2="620" y2="130"/>
+          <rect class="node-rect" x="60" y="140" width="240" height="100" rx="12"/>
+          <text x="180" y="178" text-anchor="middle" font-weight="700" font-size="15" font-family="Noto Sans SC, DM Sans, sans-serif">外壳 A</text>
+          <text x="180" y="204" text-anchor="middle" font-size="13" fill="#6B6560" font-family="Noto Sans SC, DM Sans, sans-serif">工具结果回到对话</text>
+          <text x="180" y="224" text-anchor="middle" font-size="13" fill="#6B6560" font-family="Noto Sans SC, DM Sans, sans-serif">报错变成下一条观察</text>
+          <rect class="node-rect" x="500" y="140" width="240" height="100" rx="12"/>
+          <text x="620" y="178" text-anchor="middle" font-weight="700" font-size="15" font-family="Noto Sans SC, DM Sans, sans-serif">外壳 B</text>
+          <text x="620" y="204" text-anchor="middle" font-size="13" fill="#6B6560" font-family="Noto Sans SC, DM Sans, sans-serif">上下文被整段丢掉</text>
+          <text x="620" y="224" text-anchor="middle" font-size="13" fill="#6B6560" font-family="Noto Sans SC, DM Sans, sans-serif">一次异常就退出循环</text>
+        </svg>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <strong class="callout-title">这篇课的主语</strong>
+          <p>外壳有个名字：<span class="term" data-definition="Harness（外壳 / 运行时）：除模型以外的全部。循环、工具、上下文、安全、编排和扩展。人在里面工作，不是把它当库导入。">harness</span>。模型负责判断，harness 负责把判断变成对仓库的动作。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">四个经常被叫成同一个词的东西</h3>
+      <div class="contribution-cards stagger-children animate-in">
+        <div class="contribution-card">
+          <div class="contribution-num">1</div>
+          <div class="contribution-text">
+            <strong>Harness</strong>
+            <p>交付出去的运行时。Claude Code 是一件带权限和插件的产品，不只是一个循环。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">2</div>
+          <div class="contribution-text">
+            <strong><span class="term" data-definition="Scaffold（脚手架）：结构代码本身，比如循环和工具注册表。Harness 是把脚手架嵌进产品之后交出去的那一整件。">脚手架</span></strong>
+            <p>结构代码。Mini-SWE-Agent 的脚手架大约一百行。两者近义，但一个是骨架，一个是产品。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">3</div>
+          <div class="contribution-text">
+            <strong>评测 harness</strong>
+            <p>SWE-bench 包住 Agent 去跑题。Agent harness 包住模型让它去行动。方向相反。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">4</div>
+          <div class="contribution-text">
+            <strong><span class="term" data-definition="Meta-harness（元外壳）：在若干 harness 上面做编排、策略和沙箱。它自己没有改代码的循环，所以不是第十二套编程 Agent。">Meta-harness</span></strong>
+            <p>站在外面协调别的 harness。自己不写编辑循环。Omnigent 是这一层，不是十一套之一。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">循环和检索，只要这一个直觉</h3>
+      <div class="flow-steps animate-in">
+        <div class="flow-step"><div class="flow-step-num">1</div><p>把任务和上下文装进提示</p></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step"><div class="flow-step-num">2</div><p>模型决定调用哪个工具</p></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step"><div class="flow-step-num">3</div><p>执行，把观察追加回去</p></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step"><div class="flow-step-num">4</div><p>直到模型不再要工具</p></div>
+      </div>
+      <p>这叫 <span class="term" data-definition="ReAct：先推理、再行动、再把观察接回对话的循环。这篇论文里的十一套系统都是它的变体，差别在并发、状态放在哪、以及什么叫做停。">ReAct</span>。找代码时，另一条路是把文件做成向量再按相似度搜，也就是面向代码的 <span class="term" data-definition="RAG（检索增强生成）：先把文档或代码变成向量，提问时按相似度取回片段再交给模型。这篇论文说，生产编程 Agent 不用这条路来读源码。">RAG</span>。记住这个对照，模块 5 会回来拆它。</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">把词放回它的格子</h3>
+      <div class="dnd-container animate-in" id="dnd-module0">
+        <div class="dnd-chips">
+          <div class="dnd-chip" draggable="true" data-answer="harness">Harness</div>
+          <div class="dnd-chip" draggable="true" data-answer="scaffold">脚手架</div>
+          <div class="dnd-chip" draggable="true" data-answer="eval">评测 harness</div>
+          <div class="dnd-chip" draggable="true" data-answer="meta">Meta-harness</div>
+        </div>
+        <div class="dnd-zones">
+          <div class="dnd-zone" data-correct="harness">
+            <p class="dnd-zone-label">人在里面工作的运行时：循环、工具、权限、扩展都在</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="scaffold">
+            <p class="dnd-zone-label">只是结构代码。一百行的 while 可以算它，带界面的产品不算</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="eval">
+            <p class="dnd-zone-label">包住 Agent，让它去跑一组已知题目</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="meta">
+            <p class="dnd-zone-label">在若干 Agent 外面做编排，自己不改文件</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+        </div>
+        <div style="margin-top:var(--space-4)">
+          <button class="btn" onclick="checkDnD('dnd-module0')">检查匹配</button>
+          <button class="btn" onclick="resetDnD('dnd-module0')">重置</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module0">
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="正确。论文的起点就是：智力在模型里，能不能连续把活做完，取决于循环、上下文和失败之后还在不在。"
+             data-explanation-wrong="不太对。换模型和上向量检索都是常见反应。这篇论文要你先看外壳有没有把观察送回去、有没有在报错后继续。">
+          <h3 class="quiz-question">两支团队用同一个模型。一支的 Agent 改着改着就忘了最初的任务。按这篇论文的框架，第一眼该看哪？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>换成上下文更长的模型，外壳先不动</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>看压缩有没有冲掉早期决定，以及工具结果有没有回到消息里</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>把仓库做成向量索引，让模型靠相似度回忆</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module0')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module0')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>

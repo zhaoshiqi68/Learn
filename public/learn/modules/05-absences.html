@@ -1,0 +1,143 @@
+<section class="module" id="module-5">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">05</span>
+      <h2 class="module-title">两样大家都以为会有的东西</h2>
+      <p class="module-subtitle">通用编排框架，和面向代码的向量检索。十一套源码里，两样都不在该在的位置上。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">采用率，按十一套来算</h3>
+      <p>条形是「十一套里有多少套这么做」，换算成百分比只是为了能看。0 不是测量误差。</p>
+      <div class="result-comparison animate-in">
+        <div class="result-header">
+          <h4>源码里实际有的，和实际没有的</h4>
+          <div class="result-metric-toggle">
+            <button class="result-metric active" data-metric="share">占十一套</button>
+            <button class="result-metric" data-metric="code">用来读代码</button>
+          </div>
+        </div>
+        <div class="result-bars">
+          <div class="result-bar" data-share="82" data-code="0">
+            <span class="result-label">SKILL.md（9/11）</span>
+            <div class="result-bar-track"><div class="result-fill ours" style="width:0%"></div></div>
+            <span class="result-value"></span>
+          </div>
+          <div class="result-bar" data-share="73" data-code="0">
+            <span class="result-label">MCP（8/11）</span>
+            <div class="result-bar-track"><div class="result-fill baseline" style="width:0%"></div></div>
+            <span class="result-value"></span>
+          </div>
+          <div class="result-bar" data-share="55" data-code="0">
+            <span class="result-label">ACP（6/11）</span>
+            <div class="result-bar-track"><div class="result-fill baseline" style="width:0%"></div></div>
+            <span class="result-value"></span>
+          </div>
+          <div class="result-bar" data-share="0" data-code="0">
+            <span class="result-label">通用编排框架</span>
+            <div class="result-bar-track"><div class="result-fill baseline" style="width:0%"></div></div>
+            <span class="result-value"></span>
+          </div>
+          <div class="result-bar" data-share="0" data-code="0">
+            <span class="result-label">向量检索源码</span>
+            <div class="result-bar-track"><div class="result-fill baseline" style="width:0%"></div></div>
+            <span class="result-value"></span>
+          </div>
+        </div>
+      </div>
+      <p>切到「用来读代码」时，这五行都是 0。Skill 和 MCP 是扩展，不是检索器。读代码靠的是 ripgrep、glob、tree-sitter 和自动发现的 Markdown。</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">为什么代码不适合先做成向量</h3>
+      <div class="contribution-cards stagger-children animate-in">
+        <div class="contribution-card">
+          <div class="contribution-num">1</div>
+          <div class="contribution-text">
+            <strong>结构已经是确定的</strong>
+            <p>路径、语法树、语言服务器、类型。相似度复制不了「这个函数在这个文件的这一层」。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">2</div>
+          <div class="contribution-text">
+            <strong>分钟级就会过期</strong>
+            <p>论文的原话是：代码一分钟一分钟地变，预建的向量几乎一建好就旧了。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">3</div>
+          <div class="contribution-text">
+            <strong>环境里已经有检索器</strong>
+            <p>ripgrep、find、glob。再加一套向量库，是嵌入计算、漂移和维护，边际收益不稳定。</p>
+          </div>
+        </div>
+      </div>
+      <div class="paper-citation animate-in">
+        <div class="paper-citation-title">Effective Context Engineering for AI Agents</div>
+        <div class="paper-citation-authors">Rajasekaran 等，2025 年 9 月</div>
+        <div class="paper-citation-summary">偏向即时检索：用文件系统、收件箱、书签在需要时去取，而不是把整个语料背进索引。论文说十一套都走了这条实践。</div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">「零框架」也有两处边界</h3>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">0</div>
+          <div>
+            <strong>运行时没有这些导入</strong>
+            <p>LangChain、LangGraph、AutoGen、CrewAI、LlamaIndex、Pydantic AI、Genkit、Google ADK、Semantic Kernel。Gemini CLI 连谷歌自己的两套都不用。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">边</div>
+          <div>
+            <strong>OpenCode 用了 Vercel AI SDK</strong>
+            <p>那是供应商抽象，不是编排框架。仓库里还有一个开关后面的自研客户端。作者猜这个依赖是过渡。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">边</div>
+          <div>
+            <strong>Aider 的 /help 可以装 llama-index</strong>
+            <p>只检索 Aider 自己的文档，不进 Agent 循环。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#128270;</div>
+        <div class="callout-content">
+          <strong class="callout-title">他们怎么搜的</strong>
+          <p>依赖清单加导入搜索，隔三个月又做了一遍，包括新加的三套和 meta-harness。没追踪动态导入和编译后的发行包。作者说，若有一条没被看见的路径用了 LangChain，他们会惊讶，但不会震惊。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="assumption-challenge animate-in" id="assumption-zero"
+           data-correct="option-b"
+           data-explanation-right="正确。OpenClaw 的默认向量是 sqlite-vec 加全文检索，用来回忆对话。Hermes 把嵌入留在可选插件。源码树仍然是确定性检索。"
+           data-explanation-wrong="不太对。这句话在代码检索上成立，但「任何地方都没有向量」说满了。先问向量的对象是仓库还是聊天记录。">
+        <h3>这句话藏着哪一个没说完的边界？</h3>
+        <div class="assumption-claim">「四百万行里零向量检索，没有一家把资料做成向量。」</div>
+        <div class="assumption-options">
+          <button class="assumption-option" data-value="option-a" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>假设了 Mini-SWE-Agent 的基准高于 Codex</span>
+          </button>
+          <button class="assumption-option" data-value="option-b" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把「不用向量读代码」说成了「任何地方都没有向量」</span>
+          </button>
+          <button class="assumption-option" data-value="option-c" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>假设了 Claude Code 的源码是官方公开仓库</span>
+          </button>
+        </div>
+        <div class="assumption-feedback"></div>
+        <button class="quiz-check-btn" onclick="checkAssumption('assumption-zero')">检查答案</button>
+      </div>
+    </div>
+  </div>
+</section>
