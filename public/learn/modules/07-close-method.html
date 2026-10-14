@@ -1,0 +1,139 @@
+<section class="module" id="module-7">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">07</span>
+      <h2 class="module-title">精读从限定语开始</h2>
+      <p class="module-subtitle">概论把地图给过你了。从这里起，每句话只问三件事：它承诺什么，证据在哪，它拒绝什么。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">对着 arXiv HTML 时，就用这三问</h3>
+      <div class="step-cards stagger-children animate-in">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>承诺</strong>
+            <p>主语是谁，动词有多强。是「十一套都这样」，还是「到这一版还这样」。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>证据</strong>
+            <p>这句话靠源码、靠一张图，还是靠作者的猜想。搜导入和读一张图，不是同一种证据。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>拒绝</strong>
+            <p>紧挨着的限定语删掉之后，句子会变成另一篇论文。精读就是把那个限定语标回来。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128214;</div>
+        <div class="callout-content">
+          <strong class="callout-title">不转载全文</strong>
+          <p>下面只引短句，方便你在 <a href="https://arxiv.org/html/2609.00006">HTML</a> 里定位。流通摘要里的 CC BY 4.0 没有在正文提取里核对到，引用以 arXiv 条目为准。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">用开篇那句做一次示范</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">§1</strong>
+          <p>An agent is a model plus a harness. The model supplies the intelligence; the harness turns that intelligence into work.</p>
+        </div>
+      </div>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">加</div>
+          <div>
+            <strong>第一分句是加法</strong>
+            <p>Agent 等于模型加上 harness。不是「用外壳换掉模型」，也不是「外壳本身有智能」。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">智</div>
+          <div>
+            <strong>智能的位置在模型</strong>
+            <p>supplies the intelligence。后面所有架构差异，论文都不拿来解释成「这个外壳更聪明」。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">工</div>
+          <div>
+            <strong>外壳把判断变成工作</strong>
+            <p>turns that intelligence into work。工作是对仓库的动作、权限、恢复和停。这句话没说外壳能提高智力。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">把说满的句子放回它丢掉的限定语</h3>
+      <div class="dnd-container animate-in" id="dnd-module7">
+        <div class="dnd-chips">
+          <div class="dnd-chip" draggable="true" data-answer="platform">外壳从工具变成了平台</div>
+          <div class="dnd-chip" draggable="true" data-answer="vector">四百万行里零向量</div>
+          <div class="dnd-chip" draggable="true" data-answer="frame">没有任何框架</div>
+          <div class="dnd-chip" draggable="true" data-answer="lines">九十行实现了十八条</div>
+        </div>
+        <div class="dnd-zones">
+          <div class="dnd-zone" data-correct="platform">
+            <p class="dnd-zone-label">限定在 2026 年上半年的编程 harness，而且作者写成已经发生。不是所有 Agent，也不是永远。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="vector">
+            <p class="dnd-zone-label">对象是读代码。对话记忆可以有嵌入。OpenClaw 的默认记忆就是向量加全文检索。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="frame">
+            <p class="dnd-zone-label">缺的是运行时里的通用编排框架。OpenCode 的供应商 SDK、Aider 给自己文档用的检索，是边界。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="lines">
+            <p class="dnd-zone-label">Listing 3 直接实现 10 条，并与另外 8 条兼容。沙箱、多 Agent、skill 没有写进去。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+        </div>
+        <div style="margin-top:var(--space-4)">
+          <button class="btn" onclick="checkDnD('dnd-module7')">检查匹配</button>
+          <button class="btn" onclick="resetDnD('dnd-module7')">重置</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module7">
+        <div class="quiz-question-block"
+             data-correct="option-c"
+             data-explanation-right="正确。论文留下的是「地板很低」。自报分数、不同模型和日期，使横比不成立。删掉这些限定语，句子就变成了排名。"
+             data-explanation-wrong="不太对。精读先问删掉了什么。这里删掉的是自报、模型和日期，不是工具数量。">
+          <h3 class="quiz-question">笔记写：「Mini-SWE-Agent 大约一百行，成绩和大系统同一档，所以简单循环已经够用。」哪一步读法是对的？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>可以留。论文用统一基准证明了一百行和厂商旗舰打平</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>整句作废。论文没提一百行，也没提 SWE-bench</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>只留下「地板很低」。分数是自报的，模型和日期不同，不能横比</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module7')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module7')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>

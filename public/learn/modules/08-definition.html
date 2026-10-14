@@ -1,0 +1,116 @@
+<section class="module" id="module-8">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">08</span>
+      <h2 class="module-title">把定义的两句读完</h2>
+      <p class="module-subtitle">§2 的定义很短。精读是看它把哪些东西算进「除模型以外」，又把哪些近义词推出去。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">everything except the model</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">§2.1</strong>
+          <p>The harness is everything except the model: the runtime that couples an LLM to the world.</p>
+        </div>
+      </div>
+      <p>冒号后面把 everything 收成一件东西：把语言模型接到世界上的运行时。作者采用的核心来自 Macedo，再用七个子系统把它拆开：循环、模型接入、工具、记忆与上下文、安全、编排、扩展。定义文献暗示过这些部分，生产源码里此前没有被这样落地。</p>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <strong class="callout-title">七个子系统旁边还有两块横切表面</strong>
+          <p>界面层是人用的：终端、旗标、IDE 协议、HTTP、SDK。会话基底是多个子系统共用的：记录、持久化、恢复、分叉。平台化的论证，很大一部分落在界面层上，而不是落在「循环更精致」上。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">这句定义推出去的四个近义词</h3>
+      <div class="contribution-cards stagger-children animate-in">
+        <div class="contribution-card">
+          <div class="contribution-num">1</div>
+          <div class="contribution-text">
+            <strong>不是脚手架本身</strong>
+            <p>脚手架是结构代码。Harness 是嵌进产品、交出去的运行时。一百行可以是脚手架；带权限和插件的产品才是 harness。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">2</div>
+          <div class="contribution-text">
+            <strong>不是导入的框架</strong>
+            <p>框架是开发者 import 的库。Harness 是人在里面工作的运行时。论文说这条界在 2026 年从两边同时在溶解，但定义本身还保持这个方向。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">3</div>
+          <div class="contribution-text">
+            <strong>不是评测 harness</strong>
+            <p>SWE-bench 包住 Agent 去跑题。Agent harness 包住模型让它行动。同一个词，包裹方向相反。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">4</div>
+          <div class="contribution-text">
+            <strong>不是编排器</strong>
+            <p>编排器在上面协调别的 harness，自己没有编辑循环。Omnigent 是关于 harness 的证据，把它算进十一套是分类错误。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="assumption-challenge animate-in" id="assumption-except"
+           data-correct="option-a"
+           data-explanation-right="正确。everything except the model 包括安全、编排、扩展，以及交出去的产品表面。提示词和工具列表只是其中两块。"
+           data-explanation-wrong="不太对。先看主语的范围。这句定义没有把外壳收成提示工程，也没有把评测包装算进去。">
+        <h3>这句话把定义收窄成了什么？</h3>
+        <div class="assumption-claim">「Harness 就是提示词模板，再加上一份工具列表。」</div>
+        <div class="assumption-options">
+          <button class="assumption-option" data-value="option-a" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>丢掉了安全、编排、扩展，以及人实际在里面工作的那件产品</span>
+          </button>
+          <button class="assumption-option" data-value="option-b" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把评测 harness 和 Agent harness 的包裹方向说反了</span>
+          </button>
+          <button class="assumption-option" data-value="option-c" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把 Omnigent 错算成了第十二套编程 Agent</span>
+          </button>
+        </div>
+        <div class="assumption-feedback"></div>
+        <button class="quiz-check-btn" onclick="checkAssumption('assumption-except')">检查答案</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module8">
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="正确。存在证明只支撑「地板很低」。分开地板和生产系统的，是安全、恢复、成本、扩展，以及越来越像平台的表面。分数不能横比。"
+             data-explanation-wrong="不太对。七个子系统都能缩进一百行，这是论文说的。它没有据此说生产系统是多余的。">
+          <h3 class="quiz-question">Mini-SWE-Agent 用大约一百行实现了全部七个子系统。精读时，这句证明允许你留下哪一个结论？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>生产系统里多出来的代码，对做完任务没有作用</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>地板很低。多出来的代码主要在安全、恢复、成本和平台表面</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>一百行的自报分数可以用来给十一套排名</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module8')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module8')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>

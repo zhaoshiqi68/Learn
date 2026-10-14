@@ -1,0 +1,145 @@
+<section class="module" id="module-11">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">11</span>
+      <h2 class="module-title">把限定语读回去</h2>
+      <p class="module-subtitle">§13 到结尾。两个缺席、三条被改写的旧观察、以及作者不许你推出的结论。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">两个缺席，各带自己的因为</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">§13.2</strong>
+          <p>Code changes minute to minute, so pre-indexed embeddings are stale almost by construction.</p>
+        </div>
+      </div>
+      <p>这句解释的是代码检索。代码分钟级在变，预先做好的嵌入几乎一建好就过期。替代品是 ripgrep、glob、tree-sitter 和语言服务器。它没有说嵌入不能用来回忆对话。</p>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">框</div>
+          <div>
+            <strong>框架缺席查的是清单和导入</strong>
+            <p>做了两轮，包括后加的系统和 meta-harness。没追踪动态导入和编译后的发行包。作者说，若有一条没被看见的路径用了 LangChain，他们会惊讶，但不会震惊。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">边</div>
+          <div>
+            <strong>两处不能删的边界</strong>
+            <p>OpenCode 用 Vercel AI SDK 做模型接入，不是编排。Aider 的 /help 可以可选安装 llama-index，只检索自己的文档。Hermes 里仅有的 LangChain 字符串，出现在教用户用向量库的 skill 文档里。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">史</div>
+          <div>
+            <strong>历史收场不是「他们落后了」</strong>
+            <p>§14.2 的句子是：harness 没有采纳那些框架，它们取代了框架，并且自己变成了可以导入的库。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">四月有三句，七月就地改了</h3>
+      <div class="step-cards stagger-children animate-in">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>耦合二分法</strong>
+            <p>不是「只有厂商能做缓存和按模型写的提示」。多供应商系统可以用集中的条件代码买到其中一部分。只有服务端跟着模型发布改提示、客户端不用更新，还留在厂商自己那里。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>规模意味着沙箱</strong>
+            <p>这条相关破了。Hermes 和 OpenCode 是很大、但没有操作系统级隔离的反例。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>协议只有两个角色</strong>
+            <p>ACP 长出第三种用法：harness 托管别家 harness。A2A 网格仍然只有 Gemini CLI，这个「只有」没有被改掉。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <strong class="callout-title">会过期的，和暂时还在的</strong>
+          <p>工具数量、功能格子、版本钉按星期变。循环分类、七个子系统、两个缺席，到这一版还立得住。对着今天的仓库精读时，先对结构，再对某个文件还在不在。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">收束句也不要读宽</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">观察 12，§14.5</strong>
+          <p>The competitive unit of the field is no longer the agent loop; it is the ecosystem surface around it.</p>
+        </div>
+      </div>
+      <p>竞争的单位从循环挪到了循环外面的生态表面：钩子、会话导入器、SDK、会托管别家 harness 的 ACP。这句没说循环对正确性不再重要，也没说谁的基准更高。Listing 3 仍然是教学脚手架：直接实现 10 条建议，兼容其余 8 条，shell=True，没有沙箱，用字符数估计 token，没有跑过基准。</p>
+    </div>
+
+    <div class="screen">
+      <div class="assumption-challenge animate-in" id="assumption-unit"
+           data-correct="option-c"
+           data-explanation-right="正确。no longer 修饰的是竞争单位，不是循环还能不能把任务做完。生态表面是钩子、导入器、SDK 和托管别家 harness 的协议。"
+           data-explanation-wrong="不太对。先看 no longer 的宾语。它否定的是「竞争还看谁的循环更精致」，不是「循环可以删掉」。">
+        <h3>这句转述把收束句推到了哪？</h3>
+        <div class="assumption-claim">「论文证明循环已经不重要，接下来只做插件市场就行。」</div>
+        <div class="assumption-options">
+          <button class="assumption-option" data-value="option-a" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把自报的 SWE-bench 分数当成了统一排名</span>
+          </button>
+          <button class="assumption-option" data-value="option-b" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把四月的「越大越有沙箱」当成了七月仍成立的观察</span>
+          </button>
+          <button class="assumption-option" data-value="option-c" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把「竞争单位变了」说成「循环对把任务做完已经没用」</span>
+          </button>
+        </div>
+        <div class="assumption-feedback"></div>
+        <button class="quiz-check-btn" onclick="checkAssumption('assumption-unit')">检查答案</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module11">
+        <div class="quiz-question-block"
+             data-correct="option-a"
+             data-explanation-right="正确。样本点名排除了 Copilot CLI、Cursor、Cline、Goose、Kiro、Antigravity 等。结构主张也不能自动搬到这些没读过的仓库上。"
+             data-explanation-wrong="不太对。论文的证据边界写在结尾。没有统一评测，语料也不是整个市场。">
+          <h3 class="quiz-question">精读到最后，哪一句仍然不能从这篇论文推出来？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>Cursor 或 Cline 的仓库也没有向量读代码，因为十一套都没有</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>到这一版，代码检索不用预建嵌入，对话记忆可以有</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>九十行示例直接实现了十八条里的十条，并且没有当生产模板去测</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module11')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module11')">重试</button>
+      </div>
+      <p style="margin-top:var(--space-8)">精读时把 HTML 开在旁边：<a href="https://arxiv.org/html/2609.00006">arXiv HTML</a> · <a href="https://arxiv.org/pdf/2609.00006">PDF</a>。需要检索全部章节、模式和建议时，用 <a href="/guide">导读</a>。课程解释论文，不转载全文。</p>
+    </div>
+  </div>
+</section>

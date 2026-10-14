@@ -32,6 +32,21 @@
       --font-body: 'DM Sans', 'Noto Sans SC', sans-serif;
       --font-display: 'Bricolage Grotesque', 'Noto Serif SC', Georgia, serif;
     }
+    .course-cover-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .course-cover-cta-secondary {
+      background: transparent;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      box-shadow: none;
+    }
+    .course-cover-cta-secondary:hover {
+      background: var(--color-accent-light);
+      color: var(--color-accent-hover);
+    }
   </style>
 
   <script src="/learn/main.js" defer></script>
@@ -50,6 +65,11 @@
         <button class="nav-dot" data-target="module-4" data-tooltip="记忆与安全" aria-label="记忆与安全"></button>
         <button class="nav-dot" data-target="module-5" data-tooltip="两个缺席" aria-label="两个缺席"></button>
         <button class="nav-dot" data-target="module-6" data-tooltip="平台与边界" aria-label="平台与边界"></button>
+        <button class="nav-dot" data-target="module-7" data-tooltip="精读方法" aria-label="精读方法"></button>
+        <button class="nav-dot" data-target="module-8" data-tooltip="定义逐句" aria-label="定义逐句"></button>
+        <button class="nav-dot" data-target="module-9" data-tooltip="样本与循环" aria-label="样本与循环"></button>
+        <button class="nav-dot" data-target="module-10" data-tooltip="容易读滑的句子" aria-label="容易读滑的句子"></button>
+        <button class="nav-dot" data-target="module-11" data-tooltip="限定语" aria-label="限定语"></button>
       </div>
     </div>
   </nav>
@@ -66,6 +86,11 @@
       <a class="sidebar-item" href="#module-4"><span class="sidebar-item-num">04</span><span class="sidebar-item-label">记忆、权限、扩展</span><span class="sidebar-item-indicator"></span></a>
       <a class="sidebar-item" href="#module-5"><span class="sidebar-item-num">05</span><span class="sidebar-item-label">两个缺席</span><span class="sidebar-item-indicator"></span></a>
       <a class="sidebar-item" href="#module-6"><span class="sidebar-item-num">06</span><span class="sidebar-item-label">平台转向与边界</span><span class="sidebar-item-indicator"></span></a>
+      <a class="sidebar-item" href="#module-7"><span class="sidebar-item-num">07</span><span class="sidebar-item-label">精读：先标限定语</span><span class="sidebar-item-indicator"></span></a>
+      <a class="sidebar-item" href="#module-8"><span class="sidebar-item-num">08</span><span class="sidebar-item-label">两句定义</span><span class="sidebar-item-indicator"></span></a>
+      <a class="sidebar-item" href="#module-9"><span class="sidebar-item-num">09</span><span class="sidebar-item-label">样本与循环</span><span class="sidebar-item-indicator"></span></a>
+      <a class="sidebar-item" href="#module-10"><span class="sidebar-item-num">10</span><span class="sidebar-item-label">容易读滑的句子</span><span class="sidebar-item-indicator"></span></a>
+      <a class="sidebar-item" href="#module-11"><span class="sidebar-item-num">11</span><span class="sidebar-item-label">把限定语读回去</span><span class="sidebar-item-indicator"></span></a>
     </nav>
   </aside>
 
@@ -82,15 +107,18 @@
     <p class="course-cover-subtitle">Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents</p>
     <p class="course-cover-authors">Paul Barbaste、Tristan Darrigol、Germain Vu、Tom Wiltberger · arXiv:2609.00006 · 2026 年 7 月</p>
     <div class="course-cover-meta">
-      <span class="course-cover-meta-item">7 个模块</span>
-      <span class="course-cover-meta-item">约 40 分钟</span>
-      <span class="course-cover-meta-item">进阶 · 写过 Agent 的人</span>
+      <span class="course-cover-meta-item">12 个模块</span>
+      <span class="course-cover-meta-item">概论约 40 分钟，精读另约 30 分钟</span>
+      <span class="course-cover-meta-item">进阶 · 对着原文读</span>
     </div>
     <div class="course-cover-abstract">
       <span class="course-cover-abstract-label">这篇论文在说什么</span>
       <p>一个 Agent 是模型加上把它接到世界上的运行时。作者读了十一套生产编程 Agent 的源码，大约四百万行，不打分。他们发现没有人用通用编排框架，也没有人用向量去搜代码。2026 年上半年，这层外壳从工具变成了平台。</p>
     </div>
-    <a href="#module-0" class="course-cover-cta">开始学习 →</a>
+    <div class="course-cover-actions">
+      <a href="#module-0" class="course-cover-cta">从概论开始 →</a>
+      <a href="#module-7" class="course-cover-cta course-cover-cta-secondary">已学完，开始精读 →</a>
+    </div>
   </div>
 </section>
 <section class="module" id="module-0">
@@ -1088,7 +1116,611 @@
         <button class="quiz-check-btn" onclick="checkQuiz('quiz-module6')">检查答案</button>
         <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module6')">重试</button>
       </div>
-      <p style="margin-top:var(--space-8)">原文：<a href="https://arxiv.org/html/2609.00006">HTML</a> · <a href="https://arxiv.org/pdf/2609.00006">PDF</a> · <a href="https://arxiv.org/abs/2609.00006">摘要</a>。逐节笔记仍在 <a href="/guide">导读</a>。课程解释论文，不转载全文。</p>
+      <p style="margin-top:var(--space-8)">概论到这里。下一节开始精读：不再重讲地图，只拆论文里最容易被说满的句子。<a href="#module-7">从限定语开始 →</a></p>
+      <p>原文：<a href="https://arxiv.org/html/2609.00006">HTML</a> · <a href="https://arxiv.org/pdf/2609.00006">PDF</a> · <a href="https://arxiv.org/abs/2609.00006">摘要</a>。逐节笔记仍在 <a href="/guide">导读</a>。课程解释论文，不转载全文。</p>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">07</span>
+      <h2 class="module-title">精读从限定语开始</h2>
+      <p class="module-subtitle">概论把地图给过你了。从这里起，每句话只问三件事：它承诺什么，证据在哪，它拒绝什么。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">对着 arXiv HTML 时，就用这三问</h3>
+      <div class="step-cards stagger-children animate-in">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>承诺</strong>
+            <p>主语是谁，动词有多强。是「十一套都这样」，还是「到这一版还这样」。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>证据</strong>
+            <p>这句话靠源码、靠一张图，还是靠作者的猜想。搜导入和读一张图，不是同一种证据。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>拒绝</strong>
+            <p>紧挨着的限定语删掉之后，句子会变成另一篇论文。精读就是把那个限定语标回来。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128214;</div>
+        <div class="callout-content">
+          <strong class="callout-title">不转载全文</strong>
+          <p>下面只引短句，方便你在 <a href="https://arxiv.org/html/2609.00006">HTML</a> 里定位。流通摘要里的 CC BY 4.0 没有在正文提取里核对到，引用以 arXiv 条目为准。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">用开篇那句做一次示范</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">§1</strong>
+          <p>An agent is a model plus a harness. The model supplies the intelligence; the harness turns that intelligence into work.</p>
+        </div>
+      </div>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">加</div>
+          <div>
+            <strong>第一分句是加法</strong>
+            <p>Agent 等于模型加上 harness。不是「用外壳换掉模型」，也不是「外壳本身有智能」。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">智</div>
+          <div>
+            <strong>智能的位置在模型</strong>
+            <p>supplies the intelligence。后面所有架构差异，论文都不拿来解释成「这个外壳更聪明」。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">工</div>
+          <div>
+            <strong>外壳把判断变成工作</strong>
+            <p>turns that intelligence into work。工作是对仓库的动作、权限、恢复和停。这句话没说外壳能提高智力。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">把说满的句子放回它丢掉的限定语</h3>
+      <div class="dnd-container animate-in" id="dnd-module7">
+        <div class="dnd-chips">
+          <div class="dnd-chip" draggable="true" data-answer="platform">外壳从工具变成了平台</div>
+          <div class="dnd-chip" draggable="true" data-answer="vector">四百万行里零向量</div>
+          <div class="dnd-chip" draggable="true" data-answer="frame">没有任何框架</div>
+          <div class="dnd-chip" draggable="true" data-answer="lines">九十行实现了十八条</div>
+        </div>
+        <div class="dnd-zones">
+          <div class="dnd-zone" data-correct="platform">
+            <p class="dnd-zone-label">限定在 2026 年上半年的编程 harness，而且作者写成已经发生。不是所有 Agent，也不是永远。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="vector">
+            <p class="dnd-zone-label">对象是读代码。对话记忆可以有嵌入。OpenClaw 的默认记忆就是向量加全文检索。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="frame">
+            <p class="dnd-zone-label">缺的是运行时里的通用编排框架。OpenCode 的供应商 SDK、Aider 给自己文档用的检索，是边界。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+          <div class="dnd-zone" data-correct="lines">
+            <p class="dnd-zone-label">Listing 3 直接实现 10 条，并与另外 8 条兼容。沙箱、多 Agent、skill 没有写进去。</p>
+            <div class="dnd-zone-target">拖放到这里</div>
+          </div>
+        </div>
+        <div style="margin-top:var(--space-4)">
+          <button class="btn" onclick="checkDnD('dnd-module7')">检查匹配</button>
+          <button class="btn" onclick="resetDnD('dnd-module7')">重置</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module7">
+        <div class="quiz-question-block"
+             data-correct="option-c"
+             data-explanation-right="正确。论文留下的是「地板很低」。自报分数、不同模型和日期，使横比不成立。删掉这些限定语，句子就变成了排名。"
+             data-explanation-wrong="不太对。精读先问删掉了什么。这里删掉的是自报、模型和日期，不是工具数量。">
+          <h3 class="quiz-question">笔记写：「Mini-SWE-Agent 大约一百行，成绩和大系统同一档，所以简单循环已经够用。」哪一步读法是对的？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>可以留。论文用统一基准证明了一百行和厂商旗舰打平</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>整句作废。论文没提一百行，也没提 SWE-bench</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>只留下「地板很低」。分数是自报的，模型和日期不同，不能横比</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module7')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module7')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">08</span>
+      <h2 class="module-title">把定义的两句读完</h2>
+      <p class="module-subtitle">§2 的定义很短。精读是看它把哪些东西算进「除模型以外」，又把哪些近义词推出去。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">everything except the model</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">§2.1</strong>
+          <p>The harness is everything except the model: the runtime that couples an LLM to the world.</p>
+        </div>
+      </div>
+      <p>冒号后面把 everything 收成一件东西：把语言模型接到世界上的运行时。作者采用的核心来自 Macedo，再用七个子系统把它拆开：循环、模型接入、工具、记忆与上下文、安全、编排、扩展。定义文献暗示过这些部分，生产源码里此前没有被这样落地。</p>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <strong class="callout-title">七个子系统旁边还有两块横切表面</strong>
+          <p>界面层是人用的：终端、旗标、IDE 协议、HTTP、SDK。会话基底是多个子系统共用的：记录、持久化、恢复、分叉。平台化的论证，很大一部分落在界面层上，而不是落在「循环更精致」上。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">这句定义推出去的四个近义词</h3>
+      <div class="contribution-cards stagger-children animate-in">
+        <div class="contribution-card">
+          <div class="contribution-num">1</div>
+          <div class="contribution-text">
+            <strong>不是脚手架本身</strong>
+            <p>脚手架是结构代码。Harness 是嵌进产品、交出去的运行时。一百行可以是脚手架；带权限和插件的产品才是 harness。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">2</div>
+          <div class="contribution-text">
+            <strong>不是导入的框架</strong>
+            <p>框架是开发者 import 的库。Harness 是人在里面工作的运行时。论文说这条界在 2026 年从两边同时在溶解，但定义本身还保持这个方向。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">3</div>
+          <div class="contribution-text">
+            <strong>不是评测 harness</strong>
+            <p>SWE-bench 包住 Agent 去跑题。Agent harness 包住模型让它行动。同一个词，包裹方向相反。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">4</div>
+          <div class="contribution-text">
+            <strong>不是编排器</strong>
+            <p>编排器在上面协调别的 harness，自己没有编辑循环。Omnigent 是关于 harness 的证据，把它算进十一套是分类错误。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="assumption-challenge animate-in" id="assumption-except"
+           data-correct="option-a"
+           data-explanation-right="正确。everything except the model 包括安全、编排、扩展，以及交出去的产品表面。提示词和工具列表只是其中两块。"
+           data-explanation-wrong="不太对。先看主语的范围。这句定义没有把外壳收成提示工程，也没有把评测包装算进去。">
+        <h3>这句话把定义收窄成了什么？</h3>
+        <div class="assumption-claim">「Harness 就是提示词模板，再加上一份工具列表。」</div>
+        <div class="assumption-options">
+          <button class="assumption-option" data-value="option-a" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>丢掉了安全、编排、扩展，以及人实际在里面工作的那件产品</span>
+          </button>
+          <button class="assumption-option" data-value="option-b" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把评测 harness 和 Agent harness 的包裹方向说反了</span>
+          </button>
+          <button class="assumption-option" data-value="option-c" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把 Omnigent 错算成了第十二套编程 Agent</span>
+          </button>
+        </div>
+        <div class="assumption-feedback"></div>
+        <button class="quiz-check-btn" onclick="checkAssumption('assumption-except')">检查答案</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module8">
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="正确。存在证明只支撑「地板很低」。分开地板和生产系统的，是安全、恢复、成本、扩展，以及越来越像平台的表面。分数不能横比。"
+             data-explanation-wrong="不太对。七个子系统都能缩进一百行，这是论文说的。它没有据此说生产系统是多余的。">
+          <h3 class="quiz-question">Mini-SWE-Agent 用大约一百行实现了全部七个子系统。精读时，这句证明允许你留下哪一个结论？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>生产系统里多出来的代码，对做完任务没有作用</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>地板很低。多出来的代码主要在安全、恢复、成本和平台表面</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>一百行的自报分数可以用来给十一套排名</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module8')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module8')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-9">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">09</span>
+      <h2 class="module-title">先核对「十一」和「三种循环」</h2>
+      <p class="module-subtitle">§4 到 §6 最常见的误读，是把对照物算进样本，再把三种循环读成三选一。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">样本那句话，主语要数全</h3>
+      <p>四家厂商旗舰都在里面：Claude Code、Codex CLI、Gemini CLI，以及摘要里经常消失的 Mistral Vibe。开源一侧包括 OpenHands、Aider、Mini-SWE-Agent。快照钉在 2026 年 7 月能拿到的版本。</p>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">内</div>
+          <div>
+            <strong>OpenClaw 在十一套里，但是离群点</strong>
+            <p>它把自己写成个人助手网关，不是编程 Agent，没有原生改代码工具。放进来是为了检验「大家都在收敛」是不是只对编程 Agent 成立。Hermes 也是多通道网关，但自带编程工具，所以是普通成员。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">外</div>
+          <div>
+            <strong>Omnigent 不在十一套里</strong>
+            <p>它把 harness 当成可替换部件，自己没有编辑循环。和十一套并列打七个子系统的分，是分类错误。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">旧</div>
+          <div>
+            <strong>纵向样本是四月那八套</strong>
+            <p>七月才加入的 Hermes、Pi、OpenCode 不在「同一仓库钉两次」的差异里。三条旧观察后来被改写，改的是这八套的重读，不是这三套的前后对比。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-warning animate-in">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-content">
+          <strong class="callout-title">Claude Code 的源码不是七月二进制</strong>
+          <p>论文用的是 2026 年 3 月流传的非官方源码。七月发行二进制是 2.1.206，正文写明二进制可能已经不同。读到 Claude Code 的细节时，先记住这个版本差。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">循环那句：三种形状，不是三选一</h3>
+      <div class="ablation-demo animate-in">
+        <div class="ablation-tabs">
+          <button class="ablation-tab active" onclick="showLayer('loop-nine', this)">九套</button>
+          <button class="ablation-tab" onclick="showLayer('loop-aider', this)">Aider</button>
+          <button class="ablation-tab" onclick="showLayer('loop-overlay', this)">叠加</button>
+          <button class="ablation-tab" onclick="showLayer('loop-wrong', this)">读错</button>
+        </div>
+        <div class="ablation-viewport">
+          <div class="ablation-layer" id="loop-nine">
+            <div class="ablation-metric">主体</div>
+            <div class="ablation-delta positive">动作–观察</div>
+            <p class="ablation-description">九套的主循环是迭代式：组装提示，调用模型，执行工具，把观察追加回去。差别在并发、状态放在哪、什么叫做停。</p>
+          </div>
+          <div class="ablation-layer" id="loop-aider" style="display:none">
+            <div class="ablation-metric">唯一</div>
+            <div class="ablation-delta neutral">反思形主循环</div>
+            <p class="ablation-description">Aider 改完跑语法、编译和 flake8，失败再叫一次模型，默认最多三次。它是唯一把反思放进主循环的系统，不是第十一套里的普遍形态。</p>
+          </div>
+          <div class="ablation-layer" id="loop-overlay" style="display:none">
+            <div class="ablation-metric">叠加</div>
+            <div class="ablation-delta neutral">不是第三类</div>
+            <p class="ablation-description">协调者–工作者叠在迭代循环上。Claude Code 和 Codex 里是规定好的，Hermes 要开配置。删掉「叠加」两个字，分类就错了。</p>
+          </div>
+          <div class="ablation-layer" id="loop-wrong" style="display:none">
+            <div class="ablation-metric">误读</div>
+            <div class="ablation-delta negative">三选一</div>
+            <p class="ablation-description">「每套系统恰好属于一种循环」不是论文的句子。十一套都是 ReAct 的变体。协调者可以和动作–观察同时存在。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module9">
+        <div class="quiz-question-block"
+             data-correct="option-a"
+             data-explanation-right="正确。纵向差异是四月已经审过、七月又钉一次的那八套。Hermes、Pi、OpenCode 是后加的，不能拿来做前后对比。"
+             data-explanation-wrong="不太对。先分「在不在十一套里」和「在不在纵向样本里」。后加的三套在语料里，不在前后对照里。">
+          <h3 class="quiz-question">有人说：「论文比较了 Hermes 从四月到七月的源码差异。」这句错在哪？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>Hermes 是七月才加入的，不在同一仓库钉两次的那八套里</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>Hermes 根本不在十一套里，它和 Omnigent 一样是元外壳</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>论文没有做任何纵向对照，四月和七月是同一份快照</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module9')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module9')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-10">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">10</span>
+      <h2 class="module-title">四句很容易读滑的话</h2>
+      <p class="module-subtitle">§8 到 §12。工具数量、层数、沙箱和协议，每句都有一个不在字面上的边界。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">改文件的契约，比工具个数更决定准不准</h3>
+      <p>个数本身说明不了能力：Mini-SWE-Agent 把一切塞进一次 shell；Claude Code 列出 43 个工具；Pi 造 7 个、默认露出 4 个；Hermes 注册 69 个再用工具集过滤；OpenClaw 的 109 以上包含媒体和频道，它本来就不是代码编辑器。</p>
+      <p>论文另有一处勘误，适合当作精读练习。四月稿说旧的模糊匹配器会把模糊编辑应用到文件上。复审发现它只在报错里提示最接近的匹配，并没有真的改文件。读旧笔记时，先问这句是四月的误记，还是七月的正文。</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">「三层」和「四层」不在同一种文本里</h3>
+      <div class="contribution-cards stagger-children animate-in">
+        <div class="contribution-card">
+          <div class="contribution-num">图</div>
+          <div class="contribution-text">
+            <strong>Claude Code 的三层</strong>
+            <p>常被说成「三层安全」。这个说法主要活在图 5。正文没有给这三层起名。精读时不要从散文里补出三个专名。</p>
+          </div>
+        </div>
+        <div class="contribution-card">
+          <div class="contribution-num">文</div>
+          <div class="contribution-text">
+            <strong>Codex 的四层</strong>
+            <p>四层在正文里有名字：Starlark 执行策略（四月误写成 TOML）、生命周期钩子、Guardian 审查模型、原生操作系统沙箱。钩子事件名沿用 Claude Code，并多了 PostCompact。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128274;</div>
+        <div class="callout-content">
+          <strong class="callout-title">沙箱不是规模的函数</strong>
+          <p>四月看起来像「越大越有跨平台沙箱」。七月这条相关破了：Hermes 和 OpenCode 都很大，却没有操作系统级隔离。真正做原生沙箱的 Codex 和 Gemini CLI，是数千行的投入。Pi 把「不做半吊子的进程内沙箱」写成安全论点，因为那会被误认成边界。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">协议那句：skill、MCP、ACP 各算各的</h3>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">9</div>
+          <div>
+            <strong>Skill 是 9/11，不是全员</strong>
+            <p>不做的是 Aider 和 Mini-SWE-Agent。四月 skill 和 MCP 打平。打破平局的是 Pi：要 skill，不要 MCP。MCP 是 8/11。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">3</div>
+          <div>
+            <strong>ACP 有第三个角色</strong>
+            <p>六个系统把它当正式部件。除了编辑器驱动本地 Agent，还有「把别家 harness 当成可替换的大脑」。OpenHands 可以把一步委托给 Claude Code、Codex 或 Gemini CLI。A2A 网格仍然只有 Gemini CLI。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">内</div>
+          <div>
+            <strong>子 Agent 大多留在进程内</strong>
+            <p>多 Agent 收敛成层级，不是一张对等网格。读到「它们组成了 Agent 网络」时，先回到这句。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module10">
+        <div class="quiz-question-block"
+             data-correct="option-b"
+             data-explanation-right="正确。图和正文不是同一种证据。Claude Code 的三层不要从散文里补名字。Codex 的四层，包括 Starlark 而不是 TOML，是正文写了的。"
+             data-explanation-wrong="不太对。先分「图里有」和「正文起了名」。四月把 Codex 的策略层写成 TOML，七月更正为 Starlark。">
+          <h3 class="quiz-question">同事要你「按论文正文，列出 Claude Code 安全三层的名字」。哪一种回答符合精读？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>正文写了三层的专名，和图 5 一一对应，可以直接抄</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>三层主要在图里。正文没有给它们起名。有名字的四层是 Codex</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>Claude Code 和 Codex 的层数相同，都是正文里的 Starlark、钩子和 Guardian</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module10')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module10')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-11">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">11</span>
+      <h2 class="module-title">把限定语读回去</h2>
+      <p class="module-subtitle">§13 到结尾。两个缺席、三条被改写的旧观察、以及作者不许你推出的结论。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">两个缺席，各带自己的因为</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">§13.2</strong>
+          <p>Code changes minute to minute, so pre-indexed embeddings are stale almost by construction.</p>
+        </div>
+      </div>
+      <p>这句解释的是代码检索。代码分钟级在变，预先做好的嵌入几乎一建好就过期。替代品是 ripgrep、glob、tree-sitter 和语言服务器。它没有说嵌入不能用来回忆对话。</p>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">框</div>
+          <div>
+            <strong>框架缺席查的是清单和导入</strong>
+            <p>做了两轮，包括后加的系统和 meta-harness。没追踪动态导入和编译后的发行包。作者说，若有一条没被看见的路径用了 LangChain，他们会惊讶，但不会震惊。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">边</div>
+          <div>
+            <strong>两处不能删的边界</strong>
+            <p>OpenCode 用 Vercel AI SDK 做模型接入，不是编排。Aider 的 /help 可以可选安装 llama-index，只检索自己的文档。Hermes 里仅有的 LangChain 字符串，出现在教用户用向量库的 skill 文档里。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">史</div>
+          <div>
+            <strong>历史收场不是「他们落后了」</strong>
+            <p>§14.2 的句子是：harness 没有采纳那些框架，它们取代了框架，并且自己变成了可以导入的库。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">四月有三句，七月就地改了</h3>
+      <div class="step-cards stagger-children animate-in">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>耦合二分法</strong>
+            <p>不是「只有厂商能做缓存和按模型写的提示」。多供应商系统可以用集中的条件代码买到其中一部分。只有服务端跟着模型发布改提示、客户端不用更新，还留在厂商自己那里。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>规模意味着沙箱</strong>
+            <p>这条相关破了。Hermes 和 OpenCode 是很大、但没有操作系统级隔离的反例。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>协议只有两个角色</strong>
+            <p>ACP 长出第三种用法：harness 托管别家 harness。A2A 网格仍然只有 Gemini CLI，这个「只有」没有被改掉。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">&#128161;</div>
+        <div class="callout-content">
+          <strong class="callout-title">会过期的，和暂时还在的</strong>
+          <p>工具数量、功能格子、版本钉按星期变。循环分类、七个子系统、两个缺席，到这一版还立得住。对着今天的仓库精读时，先对结构，再对某个文件还在不在。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">收束句也不要读宽</h3>
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">&#10077;</div>
+        <div class="callout-content">
+          <strong class="callout-title">观察 12，§14.5</strong>
+          <p>The competitive unit of the field is no longer the agent loop; it is the ecosystem surface around it.</p>
+        </div>
+      </div>
+      <p>竞争的单位从循环挪到了循环外面的生态表面：钩子、会话导入器、SDK、会托管别家 harness 的 ACP。这句没说循环对正确性不再重要，也没说谁的基准更高。Listing 3 仍然是教学脚手架：直接实现 10 条建议，兼容其余 8 条，shell=True，没有沙箱，用字符数估计 token，没有跑过基准。</p>
+    </div>
+
+    <div class="screen">
+      <div class="assumption-challenge animate-in" id="assumption-unit"
+           data-correct="option-c"
+           data-explanation-right="正确。no longer 修饰的是竞争单位，不是循环还能不能把任务做完。生态表面是钩子、导入器、SDK 和托管别家 harness 的协议。"
+           data-explanation-wrong="不太对。先看 no longer 的宾语。它否定的是「竞争还看谁的循环更精致」，不是「循环可以删掉」。">
+        <h3>这句转述把收束句推到了哪？</h3>
+        <div class="assumption-claim">「论文证明循环已经不重要，接下来只做插件市场就行。」</div>
+        <div class="assumption-options">
+          <button class="assumption-option" data-value="option-a" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把自报的 SWE-bench 分数当成了统一排名</span>
+          </button>
+          <button class="assumption-option" data-value="option-b" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把四月的「越大越有沙箱」当成了七月仍成立的观察</span>
+          </button>
+          <button class="assumption-option" data-value="option-c" onclick="selectAssumption(this)">
+            <div class="quiz-option-radio"></div>
+            <span>把「竞争单位变了」说成「循环对把任务做完已经没用」</span>
+          </button>
+        </div>
+        <div class="assumption-feedback"></div>
+        <button class="quiz-check-btn" onclick="checkAssumption('assumption-unit')">检查答案</button>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module11">
+        <div class="quiz-question-block"
+             data-correct="option-a"
+             data-explanation-right="正确。样本点名排除了 Copilot CLI、Cursor、Cline、Goose、Kiro、Antigravity 等。结构主张也不能自动搬到这些没读过的仓库上。"
+             data-explanation-wrong="不太对。论文的证据边界写在结尾。没有统一评测，语料也不是整个市场。">
+          <h3 class="quiz-question">精读到最后，哪一句仍然不能从这篇论文推出来？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>Cursor 或 Cline 的仓库也没有向量读代码，因为十一套都没有</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>到这一版，代码检索不用预建嵌入，对话记忆可以有</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>九十行示例直接实现了十八条里的十条，并且没有当生产模板去测</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module11')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module11')">重试</button>
+      </div>
+      <p style="margin-top:var(--space-8)">精读时把 HTML 开在旁边：<a href="https://arxiv.org/html/2609.00006">arXiv HTML</a> · <a href="https://arxiv.org/pdf/2609.00006">PDF</a>。需要检索全部章节、模式和建议时，用 <a href="/guide">导读</a>。课程解释论文，不转载全文。</p>
     </div>
   </div>
 </section>

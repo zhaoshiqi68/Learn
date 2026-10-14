@@ -6,7 +6,7 @@
 
 Paul Barbaste、Tristan Darrigol、Germain Vu、Tom Wiltberger，arXiv:[2609.00006](https://arxiv.org/abs/2609.00006)（2026 年 7 月）。
 
-课程在 `public/learn/`：封面、七个模块、公式步进、伪代码逐行、对照条、拖放、测验。样式和交互引擎来自该技能的 `references/`。`main.js` 只改了一处：侧边栏节点在首次进度计算之前声明，否则测验函数不会挂上。课程解释论文，不转载全文。
+课程在 `public/learn/`。前七个模块是概论：公式步进、伪代码逐行、对照条、拖放、测验。后五个模块是精读，对着短引文标出承诺、证据和限定语。样式和交互引擎来自该技能的 `references/`。`main.js` 只改了一处：侧边栏节点在首次进度计算之前声明，否则测验函数不会挂上。课程解释论文，不转载全文。
 
 原文：[HTML](https://arxiv.org/html/2609.00006) · [PDF](https://arxiv.org/pdf/2609.00006)
 

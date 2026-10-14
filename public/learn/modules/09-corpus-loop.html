@@ -1,0 +1,106 @@
+<section class="module" id="module-9">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">09</span>
+      <h2 class="module-title">先核对「十一」和「三种循环」</h2>
+      <p class="module-subtitle">§4 到 §6 最常见的误读，是把对照物算进样本，再把三种循环读成三选一。</p>
+    </header>
+
+    <div class="screen">
+      <h3 class="screen-heading">样本那句话，主语要数全</h3>
+      <p>四家厂商旗舰都在里面：Claude Code、Codex CLI、Gemini CLI，以及摘要里经常消失的 Mistral Vibe。开源一侧包括 OpenHands、Aider、Mini-SWE-Agent。快照钉在 2026 年 7 月能拿到的版本。</p>
+      <div class="icon-rows stagger-children animate-in">
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-1)">内</div>
+          <div>
+            <strong>OpenClaw 在十一套里，但是离群点</strong>
+            <p>它把自己写成个人助手网关，不是编程 Agent，没有原生改代码工具。放进来是为了检验「大家都在收敛」是不是只对编程 Agent 成立。Hermes 也是多通道网关，但自带编程工具，所以是普通成员。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-2)">外</div>
+          <div>
+            <strong>Omnigent 不在十一套里</strong>
+            <p>它把 harness 当成可替换部件，自己没有编辑循环。和十一套并列打七个子系统的分，是分类错误。</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <div class="icon-circle" style="background: var(--color-actor-4)">旧</div>
+          <div>
+            <strong>纵向样本是四月那八套</strong>
+            <p>七月才加入的 Hermes、Pi、OpenCode 不在「同一仓库钉两次」的差异里。三条旧观察后来被改写，改的是这八套的重读，不是这三套的前后对比。</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-warning animate-in">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-content">
+          <strong class="callout-title">Claude Code 的源码不是七月二进制</strong>
+          <p>论文用的是 2026 年 3 月流传的非官方源码。七月发行二进制是 2.1.206，正文写明二进制可能已经不同。读到 Claude Code 的细节时，先记住这个版本差。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">循环那句：三种形状，不是三选一</h3>
+      <div class="ablation-demo animate-in">
+        <div class="ablation-tabs">
+          <button class="ablation-tab active" onclick="showLayer('loop-nine', this)">九套</button>
+          <button class="ablation-tab" onclick="showLayer('loop-aider', this)">Aider</button>
+          <button class="ablation-tab" onclick="showLayer('loop-overlay', this)">叠加</button>
+          <button class="ablation-tab" onclick="showLayer('loop-wrong', this)">读错</button>
+        </div>
+        <div class="ablation-viewport">
+          <div class="ablation-layer" id="loop-nine">
+            <div class="ablation-metric">主体</div>
+            <div class="ablation-delta positive">动作–观察</div>
+            <p class="ablation-description">九套的主循环是迭代式：组装提示，调用模型，执行工具，把观察追加回去。差别在并发、状态放在哪、什么叫做停。</p>
+          </div>
+          <div class="ablation-layer" id="loop-aider" style="display:none">
+            <div class="ablation-metric">唯一</div>
+            <div class="ablation-delta neutral">反思形主循环</div>
+            <p class="ablation-description">Aider 改完跑语法、编译和 flake8，失败再叫一次模型，默认最多三次。它是唯一把反思放进主循环的系统，不是第十一套里的普遍形态。</p>
+          </div>
+          <div class="ablation-layer" id="loop-overlay" style="display:none">
+            <div class="ablation-metric">叠加</div>
+            <div class="ablation-delta neutral">不是第三类</div>
+            <p class="ablation-description">协调者–工作者叠在迭代循环上。Claude Code 和 Codex 里是规定好的，Hermes 要开配置。删掉「叠加」两个字，分类就错了。</p>
+          </div>
+          <div class="ablation-layer" id="loop-wrong" style="display:none">
+            <div class="ablation-metric">误读</div>
+            <div class="ablation-delta negative">三选一</div>
+            <p class="ablation-description">「每套系统恰好属于一种循环」不是论文的句子。十一套都是 ReAct 的变体。协调者可以和动作–观察同时存在。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="quiz-container animate-in" id="quiz-module9">
+        <div class="quiz-question-block"
+             data-correct="option-a"
+             data-explanation-right="正确。纵向差异是四月已经审过、七月又钉一次的那八套。Hermes、Pi、OpenCode 是后加的，不能拿来做前后对比。"
+             data-explanation-wrong="不太对。先分「在不在十一套里」和「在不在纵向样本里」。后加的三套在语料里，不在前后对照里。">
+          <h3 class="quiz-question">有人说：「论文比较了 Hermes 从四月到七月的源码差异。」这句错在哪？</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>Hermes 是七月才加入的，不在同一仓库钉两次的那八套里</span>
+            </button>
+            <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>Hermes 根本不在十一套里，它和 Omnigent 一样是元外壳</span>
+            </button>
+            <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span>论文没有做任何纵向对照，四月和七月是同一份快照</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module9')">检查答案</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module9')">重试</button>
+      </div>
+    </div>
+  </div>
+</section>
