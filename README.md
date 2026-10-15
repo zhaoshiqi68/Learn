@@ -19,7 +19,9 @@ npm install
 npm run dev -- --hostname 127.0.0.1 --port 38471
 ```
 
-打开 [http://127.0.0.1:38471](http://127.0.0.1:38471)，首页会进入课程。
+打开 [http://127.0.0.1:38471](http://127.0.0.1:38471)，首页会进入课程。手机浏览器可以直接看，目录在右下角。
+
+长期地址不要用临时隧道。把 `main` 推到 GitHub 之后，在仓库 Settings → Pages 里把源选成 `main` 分支的 `/docs`。页面会在 `https://<用户名>.github.io/<仓库>/`，不会过期。`docs/` 由 `public/learn/build.sh` 同步。
 
 改完模块后重新打包：
 

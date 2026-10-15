@@ -2,8 +2,26 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Harness 精读">
   <title>Harness Engineering：十一套编程 Agent 怎么搭的</title>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var last = path.split("/").pop();
+      var dir = (path.endsWith("/") || /\.[a-z0-9]+$/i.test(last))
+        ? path.replace(/[^/]*$/, "")
+        : path + "/";
+      if (!dir.endsWith("/")) dir += "/";
+      var base = document.createElement("base");
+      base.href = dir;
+      document.head.appendChild(base);
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +39,7 @@
     });">
   </script>
 
-  <link rel="stylesheet" href="/learn/styles.css">
+  <link rel="stylesheet" href="styles.css">
 
   <style>
     :root {
@@ -35,6 +53,7 @@
     .course-cover-actions {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
     }
     .course-cover-cta-secondary {
@@ -49,7 +68,7 @@
     }
   </style>
 
-  <script src="/learn/main.js" defer></script>
+  <script src="main.js" defer></script>
 </head>
 <body>
 
